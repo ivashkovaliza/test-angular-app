@@ -1,0 +1,99 @@
+.news__item {
+  position: relative;
+  height: 380px;
+  width: 310px;
+  margin: 10px;
+  font-size: 16px;
+  text-align: left;
+  color: #ffffff;
+  background-color: #000000;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+
+  & * {
+    box-sizing: border-box;
+    transition: all 0.25s ease;
+  }
+
+  &-img {
+    position: relative;
+    height: 100%;
+    vertical-align: top;
+    opacity: 0.75;
+  }
+
+  &-info {
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    padding: 25px 20px 25px;
+  }
+
+  &-date {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    min-height: 48px;
+    min-width: 48px;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: 800;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #fff;
+  }
+
+  &-day-month {
+    display: block;
+    line-height: 14px;
+  }
+
+  &-year {
+    font-size: 11px;
+  }
+
+  &-title {
+    font-weight: 800;
+    letter-spacing: -0.4px;
+  }
+
+  & .hover {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 65px;
+    background-color: rgba(236, 188, 46, 0.75);
+    opacity: 0;
+  }
+
+  & a {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  &:hover .hover,
+  &.hover .hover {
+    opacity: 1;
+  }
+
+  &:hover figcaption,
+  &.hover figcaption {
+    opacity: 0;
+  }
+
+  &:hover .news__item-date,
+  &.hover .news__item-date {
+    transform: translateY(-100%);
+  }
+}
+

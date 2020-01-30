@@ -1,0 +1,35 @@
+.log-in {
+  display: flex;
+  justify-content: center;
+
+  &-form {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+
+    &__username, &__password {
+      background-color: transparent;
+      border: 1px solid #ecbc2e;
+      padding: 16px;
+      font-size: 16px;
+      margin: 10px 0 30px;
+      color: white;
+    }
+
+    &__btn {
+      background-color: #ecbc2e;
+      border: none;
+      color: white;
+      text-transform: uppercase;
+      font-size: 16px;
+      padding: 16px;
+
+      &:hover {
+        background-color: #f6cc55;
+      }
+    }
+  }
+
+}
