@@ -1,9 +1,20 @@
 .header{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 26px;
   padding: 20px;
+
+  &--top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  &--sub {
+    display: flex;
+    justify-content: center;
+    background-color: #333333;
+    font-size: 16px;
+    padding: 16px;
+  }
 }
 
 .logo {
@@ -20,6 +31,7 @@
   font-size: 16px;
   cursor: pointer;
   text-decoration: none;
+  white-space: nowrap;
 
   &:hover {
     background-color: white;

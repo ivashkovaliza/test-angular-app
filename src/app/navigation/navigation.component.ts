@@ -16,7 +16,6 @@ export class NavigationComponent implements OnInit {
   @Input() ngIf: any;
 
   createAlphabetNav() {
-
     sources.forEach((item) => {
       let sourceFirstLetter = item.name.slice(0,1);
 
@@ -28,8 +27,15 @@ export class NavigationComponent implements OnInit {
         this.groupedSources[sourceFirstLetter].push(item);
       }
     });
+  }
 
-    console.log(this.groupedSources);
+  manageMobileNavigation() {
+    const nav = document.getElementById("topNav");
+    if (nav.className === "nav-wrapper") {
+      nav.className += " responsive";
+    } else {
+      nav.className = "nav-wrapper";
+    }
   }
 
   ngOnInit() {

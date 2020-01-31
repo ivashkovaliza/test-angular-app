@@ -9,6 +9,9 @@ export class LogInPageComponent implements OnInit {
 
   constructor() { }
 
+  onClickLogInBtn() {
+    console.log('Log in!');
+  }
   ngOnInit() {
   }
 
