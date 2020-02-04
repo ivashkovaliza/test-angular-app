@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-filtering-menu',
@@ -8,6 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class FilteringMenuComponent implements OnInit {
 
   constructor() { }
+
+  @Input() setFilterValue: any;
+
+  onSubmitFilter(value: string) {
+    this.setFilterValue(value);
+    console.log(value);
+  }
 
   ngOnInit() {
   }

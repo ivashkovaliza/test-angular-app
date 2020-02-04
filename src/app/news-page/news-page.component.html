@@ -1,5 +1,12 @@
 <div class="news-page-wrapper">
   <app-navigation></app-navigation>
-  <app-filtering-menu></app-filtering-menu>
-  <app-news-list></app-news-list>
+  <app-filtering-menu [setFilterValue]="setFilterValue">
+  </app-filtering-menu>
+  <app-news-list
+    [arr]="arr | filterByTitle: filter"
+    [onLoadMore]="onLoadMore"
+    [newsCount]="newsCount"
+    [articles]="articles"
+    [filterValue]="filter">
+  </app-news-list>
 </div>

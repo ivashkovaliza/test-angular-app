@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +19,9 @@ import { AddEditArticleFormComponent } from './add-edit-article-form/add-edit-ar
 import { ArticlePageComponent } from './article-page/article-page.component';
 import { EditArticlePageComponent } from './edit-article-page/edit-article-page.component';
 import { LoadMoreBtnComponent } from './load-more-btn/load-more-btn.component';
+import { FilterByTitlePipe } from './pipes/filter-by-title/filter-by-title.pipe';
+import { PageService } from './services/page/page.service';
+import {RequestsService} from "./services/requests/requests.service";
 
 @NgModule({
   declarations: [
@@ -34,13 +39,19 @@ import { LoadMoreBtnComponent } from './load-more-btn/load-more-btn.component';
     AddEditArticleFormComponent,
     ArticlePageComponent,
     EditArticlePageComponent,
-    LoadMoreBtnComponent
+    LoadMoreBtnComponent,
+    FilterByTitlePipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    PageService,
+    RequestsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

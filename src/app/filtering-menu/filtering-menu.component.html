@@ -1,13 +1,13 @@
 <div class="menu">
-  <form>
-    <input placeholder="Type your text" class="menu__filter" type="text">
+  <form #filterForm="ngForm" (ngSubmit)="onSubmitFilter(filterForm.value.filter)" novalidate>
+    <input placeholder="Type your text" class="menu__filter" name="filter" type="text" ngModel>
     <button class="menu__filter-btn">Filter</button>
   </form>
   <form>
     <input id="checkbox" class="menu__checkbox" type="checkbox">
     <label>Only created by me</label>
   </form>
-  <div>
+  <div class="menu__add">
     <a routerLink="/create" class="menu__add-link">Add article</a>
   </div>
 </div>

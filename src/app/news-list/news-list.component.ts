@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { articles } from '../articles';
+import { Component, OnInit, Input } from '@angular/core';
+import { RequestsService } from "../services/requests/requests.service";
 
 @Component({
   selector: 'app-news-list',
@@ -7,19 +7,34 @@ import { articles } from '../articles';
   styleUrls: ['./news-list.component.scss']
 })
 export class NewsListComponent implements OnInit {
-  articles = articles;
-  showNewsArr = [];
-  newsCount = 3;
-  currentNewsCount = 3;
+  //arr = [];
+  // newsCount = 3;
+  // currentNewsCount = 3;
 
-  constructor() { }
+
+  constructor(private requestsService: RequestsService) { }
+
+  @Input() arr: any;
+  @Input() filterValue: any;
+  @Input() onLoadMore: any;
+  @Input() newsCount: any;
+  @Input() articles: any;
+  @Input() sourceArticles: any;
 
   ngOnInit() {
-    this.showNewsArr = articles.slice(0, this.newsCount);
+    console.log('news list ngOnInit')
+    //this.requestsService.currentSourceArticles.subscribe(arr => this.arr = arr);
+
+
+    //this.showNewsArr = this.articles.slice(0, this.newsCount);
+
+
   }
 
-  onLoadMore() {
-    this.currentNewsCount += this.newsCount;
-    this.showNewsArr = articles.slice(0, this.currentNewsCount);
-  }
+
+  //
+  // onLoadMore() {
+  //   this.currentNewsCount += this.newsCount;
+  //   this.showNewsArr = articles.slice(0, this.currentNewsCount);
+  // }
 }
