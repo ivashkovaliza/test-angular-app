@@ -1,0 +1,34 @@
+.log-in {
+  display: flex;
+  justify-content: center;
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+
+    &__username, &__password {
+      margin: 10px 0 30px;
+      padding: 16px;
+      background-color: transparent;
+      border: 1px solid #ecbc2e;
+      font-size: 16px;
+      color: white;
+    }
+
+    &__btn {
+      padding: 16px;
+      background-color: #ecbc2e;
+      border: none;
+      color: white;
+      text-transform: uppercase;
+      font-size: 16px;
+
+      &:hover {
+        background-color: #f6cc55;
+      }
+    }
+  }
+}

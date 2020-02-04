@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HelloWorldComponent } from './hello-world/hello-world.component';
-import { MainViewComponent } from './main-view/main-view.component';
 import {NotFoundComponent} from './not-found/not-found.component';
-import {ContactComponent} from './contact/contact.component';
-
+import {NewsPageComponent} from "./news-page/news-page.component";
+import {LogInPageComponent} from "./log-in-page/log-in-page.component";
+import {AddArticlePageComponent} from "./add-article-page/add-article-page.component";
+import {ArticlePageComponent} from "./article-page/article-page.component";
+import {EditArticlePageComponent} from "./edit-article-page/edit-article-page.component";
 
 const routes: Routes = [
-  {path: '', component: MainViewComponent},
-  {path: 'main', component: HelloWorldComponent},
-  {path: 'contact', component: ContactComponent},
+  {path: '', component: NewsPageComponent},
+  {path: 'login', component: LogInPageComponent},
+  {path: 'create', component: AddArticlePageComponent},
+  {path: 'edit', component: EditArticlePageComponent},
+  {path: 'article', component: ArticlePageComponent},
   {path: '404', component: NotFoundComponent},
   {path: '**', redirectTo: '/404'}
 ];

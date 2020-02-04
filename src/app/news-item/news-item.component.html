@@ -1,0 +1,13 @@
+<figure class="news__item">
+  <img class="news__item-img" src="{{articleData.urlToImage}}" alt="">
+  <div class="news__item-date">
+    <span class="news__item-day-month">{{articleData.publishedAt | date: 'd'}}/{{articleData.publishedAt | date: 'M'}}</span>
+    <span class="news__item-year">{{articleData.publishedAt | date: 'y'}}</span>
+  </div>
+  <figcaption class="news__item-info">
+    <h3 class="news__item-title">{{articleData.title}}</h3>
+    <p class="news__item-description">{{articleData.description}}</p>
+  </figcaption>
+  <div class="hover"><i class="ion-android-open"></i></div>
+  <a class="news__item-link" routerLink="/article"></a>
+</figure>

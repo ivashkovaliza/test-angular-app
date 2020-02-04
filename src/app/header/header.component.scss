@@ -1,5 +1,40 @@
-.header {
-  margin: 10px;
-  padding: 10px;
-  border: 2px solid green;
+.header{
+  padding: 20px;
+
+  &--top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  &--sub {
+    display: flex;
+    justify-content: center;
+    background-color: #333333;
+    font-size: 16px;
+    padding: 16px;
+  }
+}
+
+.logo {
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+
+.log-in__link {
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 16px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: white;
+    color: black;
+  }
 }

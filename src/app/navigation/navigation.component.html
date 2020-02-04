@@ -1,0 +1,13 @@
+<nav class="nav-wrapper" id="topNav">
+  <button class="menu-btn" (click)="manageMobileNavigation()">
+    <i class="ion-android-menu"></i>
+  </button>
+  <div class="dropdown" *ngFor="let sourceFirstLetter of alphabetArr">
+    <p class="dropbtn">{{sourceFirstLetter}}</p>
+    <div class="dropdown-content" id="{{sourceFirstLetter}}-sources">
+      <p class="dropdown-content__item" id="abc-news" *ngFor="let source of groupedSources[sourceFirstLetter]">
+        {{source.name}}
+      </p>
+    </div>
+  </div>
+</nav>

@@ -1,5 +1,18 @@
 .footer {
-  margin: 10px;
-  padding: 10px;
-  border: 2px solid blue;
+  flex: 0 0 auto;
+  padding: 30px;
+}
+
+.copyright {
+  font-size: 16px;
+  text-align: center;
+  color: #595454;
+
+  &:before {
+    content: '\A9 ';
+  }
+
+  &-link {
+    color: #ecbc2e;
+  }
 }
