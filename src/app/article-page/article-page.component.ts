@@ -21,13 +21,10 @@ export class ArticlePageComponent implements OnInit {
   ngOnInit() {
     this.id = this.activateRoute.snapshot.params['id'];
     this.requestsService.currentSourceArticles.subscribe(arr => {this.arr = arr});
-    console.log(this.arr);
     this.article = this.arr.filter(item => {
       return item.id === this.id;
     })[0];
 
-
-    console.log(this.article);
   }
 
 }

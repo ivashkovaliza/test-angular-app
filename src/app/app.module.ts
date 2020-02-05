@@ -21,7 +21,11 @@ import { EditArticlePageComponent } from './edit-article-page/edit-article-page.
 import { LoadMoreBtnComponent } from './load-more-btn/load-more-btn.component';
 import { FilterByTitlePipe } from './pipes/filter-by-title/filter-by-title.pipe';
 import { PageService } from './services/page/page.service';
-import {RequestsService} from "./services/requests/requests.service";
+import { RequestsService } from "./services/requests/requests.service";
+import { FilterByMinePipe } from './pipes/filter-by-mine/filter-by-mine.pipe';
+import { FormBuilder } from "@angular/forms";
+
+import { ReactiveFormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,17 +44,20 @@ import {RequestsService} from "./services/requests/requests.service";
     ArticlePageComponent,
     EditArticlePageComponent,
     LoadMoreBtnComponent,
-    FilterByTitlePipe
+    FilterByTitlePipe,
+    FilterByMinePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
   ],
   providers: [
     PageService,
-    RequestsService
+    RequestsService,
+    FormBuilder
   ],
   bootstrap: [AppComponent]
 })

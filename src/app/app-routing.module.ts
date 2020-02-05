@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: '', component: NewsPageComponent},
   {path: 'login', component: LogInPageComponent},
   {path: 'create', component: AddArticlePageComponent},
-  {path: 'edit', component: EditArticlePageComponent},
+  {path: 'edit/:id', component: EditArticlePageComponent},
   {path: 'article/:id', component: ArticlePageComponent},
   {path: '404', component: NotFoundComponent},
   {path: '**', redirectTo: '/404'}

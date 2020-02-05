@@ -1,5 +1,4 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-//import { sources } from '../sources';
 import { RequestsService } from "../services/requests/requests.service";
 
 @Component({

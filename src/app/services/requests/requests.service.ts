@@ -12,6 +12,10 @@ import {BehaviorSubject} from "rxjs/internal/BehaviorSubject";
 })
 export class RequestsService {
   apiKey = '83c8aebd6ec444179f992b3fc49b9b3f';
+  arr = [];
+  myArticles = new BehaviorSubject<any>([]);
+  currentMyArticles = this.myArticles.asObservable();
+
   sourceArticles = new BehaviorSubject<any>([]);
   currentSourceArticles = this.sourceArticles.asObservable();
 
@@ -30,7 +34,14 @@ export class RequestsService {
           return item;
         });
 
-        this.sourceArticles.next(data.articles)
+        this.sourceArticles.next(data.articles.concat(this.arr))
       });
+  }
+
+  setMyArticles(article) {
+    article.id = Math.random().toString(36).substr(2, 9);
+    article.publishedAt = new Date();
+    this.arr.push(article);
+    this.myArticles.next(this.arr)
   }
 }

@@ -1,8 +1,8 @@
 <main class="content">
-  <div class="news">{{filterValue}}
+  <div class="news">
     <div *ngFor="let article of arr">
       <app-news-item [articleData]="article"></app-news-item>
     </div>
   </div>
-  <app-load-more-btn *ngIf="arr.length" (loadMore)="onLoadMore()"></app-load-more-btn>
+  <app-load-more-btn *ngIf="arr.length < allNews.length" (loadMore)="onLoadMore()"></app-load-more-btn>
 </main>

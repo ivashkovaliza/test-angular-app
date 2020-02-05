@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import {PageService} from "../services/page/page.service";
+import { PageService } from "../services/page/page.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-log-in-page',
@@ -9,18 +10,19 @@ import {PageService} from "../services/page/page.service";
 })
 export class LogInPageComponent implements OnInit {
 
-  constructor(private pageService: PageService) { }
-
-  onClickLogInBtn() {
-    console.log('Log in!');
-  }
+  constructor(private pageService: PageService, private router: Router) { }
 
   newPageTitle(title) {
     this.pageService.changeTitle(title);
   }
 
   ngOnInit() {
-    this.newPageTitle('News');
+    this.newPageTitle('Log in');
+  }
+
+  logIn(value) {
+    this.pageService.logInUser(value.username);
+    this.router.navigate(["/"]);
   }
 
 }

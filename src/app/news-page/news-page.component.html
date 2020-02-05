@@ -1,12 +1,13 @@
 <div class="news-page-wrapper">
   <app-navigation></app-navigation>
-  <app-filtering-menu [setFilterValue]="setFilterValue">
+  <app-filtering-menu
+    [setFilterValue]="setFilterValue"
+    [setIsCreatedByMe]="setIsCreatedByMe"
+  >
   </app-filtering-menu>
   <app-news-list
-    [arr]="arr | filterByTitle: filter"
+    [arr]="showNewsArr | filterByTitle: filter | filterByMine: isCreatedByMe"
     [onLoadMore]="onLoadMore"
-    [newsCount]="newsCount"
-    [articles]="articles"
-    [filterValue]="filter">
+    [allNews]="arr">
   </app-news-list>
 </div>

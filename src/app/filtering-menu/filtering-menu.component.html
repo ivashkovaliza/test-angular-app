@@ -3,11 +3,13 @@
     <input placeholder="Type your text" class="menu__filter" name="filter" type="text" ngModel>
     <button class="menu__filter-btn">Filter</button>
   </form>
-  <form>
-    <input id="checkbox" class="menu__checkbox" type="checkbox">
-    <label>Only created by me</label>
-  </form>
-  <div class="menu__add">
-    <a routerLink="/create" class="menu__add-link">Add article</a>
-  </div>
+  <ng-template [ngIf]="username">
+    <form #checkboxForm="ngForm" novalidate>
+      <input  id="checkbox" class="menu__checkbox" name="checkbox" type="checkbox" (change)="onCheckboxClick(checkboxForm.value.checkbox)" ngModel checked>
+      <label>Only created by me</label>
+    </form>
+    <div class="menu__add">
+      <a routerLink="/create" class="menu__add-link">Add article</a>
+    </div>
+  </ng-template>
 </div>

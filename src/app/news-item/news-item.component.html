@@ -11,3 +11,8 @@
   <div class="hover"><i class="ion-android-open"></i></div>
   <a class="news__item-link" routerLink="/article/{{articleData.id}}" id={{articleData.id}}></a>
 </figure>
+<ng-template [ngIf]="username === articleData.author">
+  <button routerLink="/edit/{{articleData.id}}" class="news__item-btn">Edit</button>
+  <button class="news__item-btn">Delete</button>
+</ng-template>
+

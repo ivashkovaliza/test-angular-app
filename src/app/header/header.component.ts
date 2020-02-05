@@ -7,13 +7,14 @@ import { PageService } from "../services/page/page.service";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  // title = this.pageService.getPageTitle();
   title = '';
+  username = '';
 
   constructor(private pageService: PageService) {}
 
   ngOnInit() {
     this.pageService.currentTitle.subscribe(title => this.title = title);
+    this.pageService.currentUser.subscribe(username => this.username = username);
   }
 
   ngOnChanges() {
