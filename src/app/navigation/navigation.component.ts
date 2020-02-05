@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { sources } from '../sources';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { RequestsService } from "../services/requests/requests.service";
 
 @Component({
   selector: 'app-navigation',
@@ -7,16 +7,18 @@ import { sources } from '../sources';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
-  sources = sources;
+  sources = [];
   groupedSources = {};
   alphabetArr = [];
+  articles = [];
+  arr = [];
 
-  constructor() { }
+  constructor(private requestsService: RequestsService) { }
 
   @Input() ngIf: any;
 
   createAlphabetNav() {
-    sources.forEach((item) => {
+    this.sources.forEach((item) => {
       let sourceFirstLetter = item.name.slice(0,1);
 
       if(!this.alphabetArr.includes(sourceFirstLetter)) {
@@ -38,8 +40,16 @@ export class NavigationComponent implements OnInit {
     }
   }
 
+  setSourceArticles(sourceId) {
+    this.requestsService.setSourceArticles(sourceId);
+  }
+
   ngOnInit() {
-    this.createAlphabetNav();
+    this.requestsService.getSources()
+      .subscribe(data => {
+        this.sources = data.sources;
+        this.createAlphabetNav();
+      });
   }
 
 }

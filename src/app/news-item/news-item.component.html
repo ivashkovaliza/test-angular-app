@@ -1,5 +1,5 @@
 <figure class="news__item">
-  <img class="news__item-img" src="{{articleData.urlToImage}}" alt="">
+  <img class="news__item-img" src="{{articleData.urlToImage || 'https://picsum.photos/1200/630'}}" alt="">
   <div class="news__item-date">
     <span class="news__item-day-month">{{articleData.publishedAt | date: 'd'}}/{{articleData.publishedAt | date: 'M'}}</span>
     <span class="news__item-year">{{articleData.publishedAt | date: 'y'}}</span>
@@ -9,5 +9,10 @@
     <p class="news__item-description">{{articleData.description}}</p>
   </figcaption>
   <div class="hover"><i class="ion-android-open"></i></div>
-  <a class="news__item-link" routerLink="/article"></a>
+  <a class="news__item-link" routerLink="/article/{{articleData.id}}" id={{articleData.id}}></a>
 </figure>
+<ng-template [ngIf]="username === articleData.author">
+  <button routerLink="/edit/{{articleData.id}}" class="news__item-btn">Edit</button>
+  <button class="news__item-btn">Delete</button>
+</ng-template>
+

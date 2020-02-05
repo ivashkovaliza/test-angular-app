@@ -5,7 +5,7 @@
   <div class="dropdown" *ngFor="let sourceFirstLetter of alphabetArr">
     <p class="dropbtn">{{sourceFirstLetter}}</p>
     <div class="dropdown-content" id="{{sourceFirstLetter}}-sources">
-      <p class="dropdown-content__item" id="abc-news" *ngFor="let source of groupedSources[sourceFirstLetter]">
+      <p class="dropdown-content__item" id="{{source.id}}" (click)="setSourceArticles(source.id)" *ngFor="let source of groupedSources[sourceFirstLetter]">
         {{source.name}}
       </p>
     </div>

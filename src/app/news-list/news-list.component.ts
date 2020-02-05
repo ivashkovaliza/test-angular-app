@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { articles } from '../articles';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-news-list',
@@ -7,19 +6,15 @@ import { articles } from '../articles';
   styleUrls: ['./news-list.component.scss']
 })
 export class NewsListComponent implements OnInit {
-  articles = articles;
-  showNewsArr = [];
-  newsCount = 3;
-  currentNewsCount = 3;
 
-  constructor() { }
+  constructor() {}
+
+  @Input() arr: any;
+  @Input() onLoadMore: any;
+  @Input() allNews: any;
 
   ngOnInit() {
-    this.showNewsArr = articles.slice(0, this.newsCount);
+
   }
 
-  onLoadMore() {
-    this.currentNewsCount += this.newsCount;
-    this.showNewsArr = articles.slice(0, this.currentNewsCount);
-  }
 }

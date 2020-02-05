@@ -30,17 +30,30 @@
     margin-right: 10px;
   }
 
-  &__add-link {
-    background-color: transparent;
-    border: 1px solid #ffffff;
-    color: #ffffff;
+  &__add {
     padding: 16px;
+    border: 1px solid #ffffff;
+    background-color: transparent;
+  }
+
+  &__add-link {
+    color: #ffffff;
     font-size: 16px;
     text-decoration: none;
+    white-space: nowrap;
 
     &:hover {
       background-color: white;
       color: black;
+    }
+  }
+}
+
+@media screen and (max-width: 784px) {
+  .menu {
+    flex-direction: column;
+    &>* {
+      margin-bottom: 20px;
     }
   }
 }

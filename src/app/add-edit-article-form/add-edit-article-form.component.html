@@ -1,22 +1,26 @@
 <div class="add-edit">
-  <form class="add-edit-form">
-    <label for="heading">Heading</label>
-    <input id="heading" name="heading" type="text" placeholder="Enter heading" class="add-edit-form__input"/>
-    <label for="description">Short description</label>
-    <input id="description" name="description" type="text" placeholder="Enter short description" class="add-edit-form__input"/>
+  <form class="add-edit-form" [formGroup]="addEditForm" (ngSubmit)="onSubmitAddEdit(addEditForm.value)">
+    Value: {{ addEditForm.value }}
+    <label class="add-edit-form__label" for="title">Title</label>
+    <input id="title" formControlName="title" type="text" placeholder="Enter title" class="add-edit-form__input"/>
+    <div *ngIf="addEditForm.controls['title'].invalid && addEditForm.controls['title'].touched" class="add-edit-form__input--invalid">
+      The field is required
+    </div>
+    <label for="description">Description</label>
+    <input id="description" formControlName="description" type="text" placeholder="Enter short description" class="add-edit-form__input"/>
+    <div *ngIf="addEditForm.controls['description'].invalid && addEditForm.controls['description'].touched" class="add-edit-form__input--invalid">
+      The field is required
+    </div>
     <label for="content">Content</label>
-    <textarea id="content" name="content" placeholder="Enter content" class="add-edit-form__input add-edit-form__input--textarea"></textarea>
-    <label for="image">Image</label>
-    <input id="image" name="image" type="text" placeholder="Enter image URL" class="add-edit-form__input"/>
-    <label for="date">Date</label>
-    <input id="date" name="date" type="text" placeholder="Enter date" class="add-edit-form__input"/>
-    <label for="author">Author</label>
-    <input id="author" name="author" type="text" placeholder="Enter author" class="add-edit-form__input"/>
-    <label for="source-url">Source URL</label>
-    <input id="source-url" name="source url" type="text" placeholder="Enter source URL" class="add-edit-form__input"/>
+    <textarea id="content" formControlName="content" placeholder="Enter content" class="add-edit-form__input add-edit-form__input--textarea"></textarea>
+    <div *ngIf="addEditForm.controls['content'].invalid && addEditForm.controls['content'].touched" class="add-edit-form__input--invalid">
+      The field is required
+    </div>
+    <label for="urlToImage">Image</label>
+    <input id="urlToImage" formControlName="urlToImage" type="text" placeholder="Enter image URL" class="add-edit-form__input"/>
     <div class="add-edit-form__btns">
-      <button class="add-edit-form__btn">Save</button>
-      <button class="add-edit-form__btn">Cancel</button>
+      <button class="add-edit-form__btn" [disabled]="addEditForm.invalid">Save</button>
+      <button type="button" class="add-edit-form__btn" routerLink="/">Cancel</button>
     </div>
   </form>
 </div>

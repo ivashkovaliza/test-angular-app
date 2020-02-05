@@ -1,11 +1,11 @@
 <main class="content">
   <div class="log-in">
-    <form class="log-in-form">
+    <form class="log-in-form" (ngSubmit)="logIn(userForm.value)" #userForm="ngForm">
       <label for="username">Username</label>
-      <input id="username" name="username" type="text" placeholder="Enter username" class="log-in-form__username"/>
+      <input id="username" name="username" type="text" placeholder="Enter username" class="log-in-form__username" ngModel/>
       <label for="password">Password</label>
-      <input id="password" name="password" type="password" placeholder="Enter password" class="log-in-form__password"/>
-      <button type="button" class="log-in-form__btn" (click)="onClickLogInBtn()">Log in</button>
+      <input id="password" name="password" type="password" placeholder="Enter password" class="log-in-form__password" ngModel/>
+      <button class="log-in-form__btn">Log in</button>
     </form>
   </div>
 </main>

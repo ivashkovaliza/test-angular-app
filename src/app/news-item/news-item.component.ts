@@ -1,4 +1,5 @@
 import { Component, OnInit, Input  } from '@angular/core';
+import {PageService} from "../services/page/page.service";
 
 @Component({
   selector: 'app-news-item',
@@ -6,12 +7,13 @@ import { Component, OnInit, Input  } from '@angular/core';
   styleUrls: ['./news-item.component.scss']
 })
 export class NewsItemComponent implements OnInit {
-
-  constructor() { }
+  username = '';
+  constructor(private pageService: PageService){}
 
   @Input() articleData: any;
 
   ngOnInit() {
+    this.pageService.currentUser.subscribe(username => this.username = username);
   }
 
 }
